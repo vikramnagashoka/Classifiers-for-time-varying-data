@@ -1,0 +1,52 @@
+
+A. Looking at the plot of pollution over time (line 4). Do you see any periodicity? If so, what is the period?
+Answer: Approximately 12000
+
+B. Run a regression using all of the most recent variables (time lag of 1).  Since the features are standardized, the coefficients indicate relative importance of the features. Which feature is driving the prediction?
+
+Answer: Pollution, dew and wind direction
+
+C. If we remove the most recent pollution level, how does that affect prediction error?
+
+Answer: The error increases by roughly 10 times.
+
+D. If we use only the most recent pollution level, how does error compare to using all the features?
+
+Answer: Error increases.
+E. If we add four more lags, making an AR(5) model, how does error compare to just using a single lag?
+
+Answer: The error changes but not very significantly. 0.0007011AR(1)_MSE: 0.0007011 to AR(5)_MSE: 0.0007150
+AR(1)_MSE: 0.0006148 to AR(5)_MSE: 0.0005101
+
+F. We won’t build a neural net model, but do you think it will lead to better prediction accuracy? Why or why not?
+
+Answer: Yes the neural net model leads to better prediction accuracy. Performance of streaming algorithms are better if we have access to as much memory as possible. Since models such as LSTM have provision to store certain specified amount of previous data, this leads to much more information regarding the value/s that we are predicting and hence they tend to perform better.
+
+The above were all pretty much done for you in the notebook.  Now select the temperature as the variable of interest (the 3rd column) and answer the exact same set of questions. Add a bunch more rows to your workbook
+
+G. Looking at the plot of temperature over time. Do you see any periodicity? If so, what is the period?
+
+Answer: Approximately 10000
+H. Run a regression using all of the most recent variables (time lag of 1).  Since the features are standardized, the coefficients indicate relative importance of the features. Which feature is driving the prediction?
+
+Answer: Dew and temperature
+
+I. If we remove the most recent temperature level, how does that affect prediction error?
+
+Answer: Increases roughly ten times. With most recent: 0.0005666. Without most recent: 0.0087877
+
+J. If we use only the most recent temperature level, how does error compare to using all the features?
+
+Answer: Error increases.
+
+K. If we add two more lags, making an AR(3) model, how does error compare to just using a single lag
+
+AR(1) model MSE: 0.0006148 and AR(3) model MSE: 0.0005134. So error decreases using two more lags.
+
+L. We won’t build a neural net model, but do you think it will lead to better prediction accuracy? Why or why not?
+
+Answer: Yes the neural net model leads to better prediction accuracy. Performance of streaming algorithms are better if we have access to as much memory as possible. Since models such as LSTM have provision to store certain specified amount of previous data, this leads to much more information regarding the value/s that we are predicting and hence they tend to perform better.
+
+M. Given what you’ve seen above, what would be the best way to get improved prediction accuracy for pollution and temperature?
+
+Answer: Using a neural net model would most likely improve the prediction accuracy. If that is not an option then using more lags during prediction tends to give us better results. So this would be one metric to concentrate on while building different models.
